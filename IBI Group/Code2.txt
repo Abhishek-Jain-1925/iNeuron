@@ -1,0 +1,8 @@
+The numbers 1, 4, 3, and 2 will be logged to the console in the following order:
+
+console.log(1); -> Logs 1 to the console immediately.
+setTimeout(function(){console.log(2)}, 1000); -> Sets up a timeout for 1000 milliseconds i.e.1 sec to log 2 after the specified delay. It will execute after all the synchronous code has finished executing.
+setTimeout(function(){console.log(3)}, 0); -> Sets up a timeout for 0 milliseconds, but since the timeout value is 0, the function will be executed as soon as the event loop is free, which will be after the current synchronous code has finished executing, but before the one-second timeout set by the previous setTimeout.
+console.log(4); -> Logs 4 to the console immediately after the first console.log(1);.
+So, 
+  The order of logs will be: 1, 4, 3, 2.

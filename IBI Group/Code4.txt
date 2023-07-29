@@ -1,0 +1,37 @@
+Q.What will the following code's output be in sequence and explain why?
+function printNumber(num) {
+
+  console.log(num);
+
+}
+
+
+console.log(1);
+
+
+setTimeout(printNumber, 0, 2);
+
+
+setTimeout(printNumber, 100, 3);
+
+
+console.log(4);
+
+
+
+
+Output=> 1 4 2 3
+
+Explanation=> 
+console.log(1);: This logs 1 to the console immediately.
+
+setTimeout(printNumber, 0, 2);
+This schedules the printNumber function with the argument 2 to execute after 0 milliseconds. Although the delay is specified as 0, it is not guaranteed to execute immediately; it will be added to the event queue and executed after the current synchronous code finishes. So, it will log 2 after the other synchronous code has finished.
+
+setTimeout(printNumber, 100, 3);
+This schedules the printNumber function with the argument 3 to execute after 100 milliseconds. It will log 3 after a 100-millisecond delay.
+
+console.log(4);
+This logs 4 to the console immediately.
+
+So, the sequence of outputs will be 1, 4, 2, and 3. Even though the setTimeout with delay 0 is executed before the one with 100 milliseconds, it will be added to the event queue and executed after the current synchronous code has finished, which is why it logs after 4. The one with a delay of 100 milliseconds will log after the 100-millisecond delay has passed.

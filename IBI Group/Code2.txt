@@ -1,3 +1,20 @@
+ Q.In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?
+
+(function() {
+
+    console.log(1); 
+
+    setTimeout(function(){console.log(2)}, 1000); 
+
+    setTimeout(function(){console.log(3)}, 0); 
+
+    console.log(4);
+
+})();
+
+
+Answer=>
+
 The numbers 1, 4, 3, and 2 will be logged to the console in the following order:
 
 console.log(1); -> Logs 1 to the console immediately.
